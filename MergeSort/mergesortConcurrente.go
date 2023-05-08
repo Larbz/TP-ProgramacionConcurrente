@@ -70,6 +70,7 @@ func main() {
 	rand.Seed(time.Now().Unix())
 	for i := 0; i < 20; i++ {
 		numeros := rand.Perm(1000000)
+		// fmt.Println("Arreglo original",numeros)
 		var wg sync.WaitGroup
 		wg.Add(1)
 		start := time.Now()
@@ -77,6 +78,7 @@ func main() {
 		wg.Wait()
 		duration := time.Since(start)
 		times=append(times,int(duration.Milliseconds()))
+		// fmt.Println("Arreglo ordenado",numeros)
 	}
 	analyseTime(times)
 	
